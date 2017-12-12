@@ -1,0 +1,23 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+
+    # This project
+    ~/.dotfiles: ''
+
+    # Vim
+    ~/.vim: 'vim'
+    ~/.vimrc: 'vim/vimrc'
+
+    # Neovim
+    ~/.config/nvim: 'vim'
+    ~/.config/nvim/init.vim: 'vim/vimrc'
+
+
+- shell:
+  - ['git submodule update --init --recursive', 'Installing submodules']

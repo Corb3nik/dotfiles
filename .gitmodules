@@ -4,3 +4,18 @@
 [submodule "dependencies/vim-pathogen"]
 	path = dependencies/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "dependencies/neovim-colors-solarized-truecolor-only"]
+	path = dependencies/neovim-colors-solarized-truecolor-only
+	url = https://github.com/frankier/neovim-colors-solarized-truecolor-only/
+[submodule "dependencies/ctrlp.vim"]
+	path = dependencies/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "dependencies/vim-commentary"]
+	path = dependencies/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "dependencies/vim-markdown-preview"]
+	path = dependencies/vim-markdown-preview
+	url = https://github.com/JamshedVesuna/vim-markdown-preview
+[submodule "dependencies/GoldenView.Vim"]
+	path = dependencies/GoldenView.Vim
+	url = https://github.com/zhaocai/GoldenView.Vim

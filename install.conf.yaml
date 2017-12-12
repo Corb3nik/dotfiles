@@ -24,7 +24,17 @@
     ~/.bash_colors: 'bash/bash_colors'
     ~/.bash_prompt: 'bash/bash_prompt'
     ~/.exports: 'bash/exports'
+    ~/.bash_profile: 'bash/bash_profile'
     ~/.bashrc: 'bash/bashrc'
+
+    # Tmux
+    ~/.tmux.conf: 'tmux/tmux.conf'
+
+    # Git
+    ~/.gitconfig: 'git/gitconfig'
+
+    # Misc
+    ~/.macos: 'misc/macos'
 
 
 - shell:

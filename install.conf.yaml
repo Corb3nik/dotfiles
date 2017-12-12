@@ -18,6 +18,14 @@
     ~/.config/nvim: 'vim'
     ~/.config/nvim/init.vim: 'vim/vimrc'
 
+    # Bash
+    ~/.aliases: 'bash/aliases'
+    ~/.aliases.local: 'bash/aliases.local'
+    ~/.bash_colors: 'bash/bash_colors'
+    ~/.bash_prompt: 'bash/bash_prompt'
+    ~/.exports: 'bash/exports'
+    ~/.bashrc: 'bash/bashrc'
+
 
 - shell:
   - ['git submodule update --init --recursive', 'Installing submodules']

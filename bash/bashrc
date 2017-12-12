@@ -1,0 +1,30 @@
+# PATHs
+export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+[ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Create aliases.local if doesn't exist
+root=$HOME
+touch $root/.aliases.local
+
+# Source files
+source $root/.exports     # Various exports
+source $root/.aliases     # User-defined aliases
+source $root/.aliases.local     # Extra aliases
+source $root/.bash_colors # Color codes
+source $root/.bash_prompt # Bash prompt
+
+# Tab completion
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  [ -f "$(brew --prefix)/etc/bash_completion" ] && source $(brew --prefix)/etc/bash_completion
+fi
+
+# Initialize pyenv and rbenv
+which pyenv >/dev/null && eval "$(pyenv init -)"
+which rbenv >/dev/null && eval "$(rbenv init -)"
+
+# Initialize tmux
+[ -z "$TMUX" ] && exec tmux attach

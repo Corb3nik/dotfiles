@@ -19,3 +19,6 @@
 [submodule "dependencies/GoldenView.Vim"]
 	path = dependencies/GoldenView.Vim
 	url = https://github.com/zhaocai/GoldenView.Vim
+[submodule "dependencies/vim-multiple-cursors"]
+	path = dependencies/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors

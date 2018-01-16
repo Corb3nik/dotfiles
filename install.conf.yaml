@@ -15,7 +15,9 @@
     ~/.vimrc: 'vim/vimrc'
 
     # Neovim
-    ~/.config/nvim: 'vim'
+    ~/.config/nvim:
+      force: true
+      path: 'vim'
     ~/.config/nvim/init.vim: 'vim/vimrc'
 
     # Bash

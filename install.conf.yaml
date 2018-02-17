@@ -35,9 +35,6 @@
     # Git
     ~/.gitconfig: 'git/gitconfig'
 
-    # Misc
-    ~/.macos: 'misc/macos'
-
 
 - shell:
   - ['git submodule update --init --recursive', 'Installing submodules']

@@ -25,6 +25,7 @@ fi
 # Initialize pyenv and rbenv
 which pyenv >/dev/null && eval "$(pyenv init -)"
 which rbenv >/dev/null && eval "$(rbenv init -)"
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # Initialize tmux
 [ -z "$TMUX" ] && exec tmux attach

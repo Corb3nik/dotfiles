@@ -3,6 +3,9 @@ export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/Caskroom/android-sdk/4333796:$PATH"
+export PATH="/usr/local/Caskroom/android-sdk/4333796/tools:$PATH"
+export PATH="/usr/local/opt/qt/bin/:$PATH"
 
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
 
@@ -29,3 +32,5 @@ which rbenv >/dev/null && eval "$(rbenv init -)"
 
 # Initialize tmux
 [ -z "$TMUX" ] && exec tmux attach
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

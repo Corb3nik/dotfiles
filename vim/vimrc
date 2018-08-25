@@ -87,3 +87,6 @@ nmap <silent> <C-h>  <Plug>GoldenViewPrevious
 
 " Filetype specific settings
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4
+
+" fzf
+set rtp+=/usr/local/opt/fzf

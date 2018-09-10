@@ -52,3 +52,5 @@ alias burpdbg="java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,addres
 # Android Emulator
 # Fix : https://stackoverflow.com/questions/42554337/cannot-launch-avd-in-emulatorqt-library-not-found
 alias emulator="/usr/local/Caskroom/android-sdk/4333796/tools/emulator"
+
+alias weather="curl wttr.in/~Quebec+City"

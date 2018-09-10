@@ -1,24 +1,32 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+  ignore = dirty
 [submodule "dependencies/vim-pathogen"]
 	path = dependencies/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+  ignore = dirty
 [submodule "dependencies/neovim-colors-solarized-truecolor-only"]
 	path = dependencies/neovim-colors-solarized-truecolor-only
 	url = https://github.com/frankier/neovim-colors-solarized-truecolor-only/
+  ignore = dirty
 [submodule "dependencies/ctrlp.vim"]
 	path = dependencies/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim
+  ignore = dirty
 [submodule "dependencies/vim-commentary"]
 	path = dependencies/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+  ignore = dirty
 [submodule "dependencies/vim-markdown-preview"]
 	path = dependencies/vim-markdown-preview
 	url = https://github.com/JamshedVesuna/vim-markdown-preview
+  ignore = dirty
 [submodule "dependencies/GoldenView.Vim"]
 	path = dependencies/GoldenView.Vim
 	url = https://github.com/zhaocai/GoldenView.Vim
+  ignore = dirty
 [submodule "dependencies/vim-multiple-cursors"]
 	path = dependencies/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
+  ignore = dirty

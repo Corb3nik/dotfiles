@@ -32,5 +32,3 @@ which rbenv >/dev/null && eval "$(rbenv init -)"
 
 # Initialize tmux
 [ -z "$TMUX" ] && exec tmux attach
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash

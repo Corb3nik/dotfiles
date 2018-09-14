@@ -55,6 +55,9 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 
+  " https://github.com/tpope/vim-eunuch
+  Plug 'tpope/vim-eunuch'
+
   " https://github.com/artur-shaik/vim-javacomplete2
   Plug 'artur-shaik/vim-javacomplete2'
 
@@ -78,6 +81,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " https://github.com/Shougo/deoplete.nvim
   Plug 'Shougo/deoplete.nvim'
+
+  " https://github.com/w0rp/ale
+  Plug 'w0rp/ale'
 
 " Initialize plugin system
 call plug#end()
@@ -110,11 +116,13 @@ nmap <silent> <leader>w  <Plug>GoldenViewSplit
 nmap <silent> <C-l>  <Plug>GoldenViewNext
 nmap <silent> <C-h>  <Plug>GoldenViewPrevious
 
-" Filetype specific settings
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4
-
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
 " vim-javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" Filetype specific settings
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4
+autocmd FileType java setlocal shiftwidth=2 softtabstop=2
+

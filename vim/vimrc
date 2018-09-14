@@ -82,9 +82,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/Shougo/deoplete.nvim
   Plug 'Shougo/deoplete.nvim'
 
-  " https://github.com/w0rp/ale
-  Plug 'w0rp/ale'
-
 " Initialize plugin system
 call plug#end()
 

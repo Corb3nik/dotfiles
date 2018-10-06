@@ -19,6 +19,7 @@ source $root/.aliases     # User-defined aliases
 source $root/.aliases.local     # Extra aliases
 source $root/.bash_colors # Color codes
 source $root/.bash_prompt # Bash prompt
+source $root/.git-completion.bash # Git auto-complete
 
 # Tab completion
 if [[ "$OSTYPE" == "darwin"* ]]; then

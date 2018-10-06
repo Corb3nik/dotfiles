@@ -34,6 +34,7 @@
 
     # Git
     ~/.gitconfig: 'git/gitconfig'
+    ~/.git-completion.bash: 'git/git-completion.bash'
 
 
 - shell:

@@ -36,6 +36,9 @@
     ~/.gitconfig: 'git/gitconfig'
     ~/.git-completion.bash: 'git/git-completion.bash'
 
+    # SSH
+    ~/.ssh/config: 'ssh/config'
+
 
 - shell:
   - ['git submodule update --init --recursive', 'Installing submodules']

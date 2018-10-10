@@ -1,0 +1,4 @@
+Host vps
+     HostName vps
+     User corb3nik
+     IdentityFile ~/.ssh/id_rsa

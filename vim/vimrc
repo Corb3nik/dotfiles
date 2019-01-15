@@ -79,9 +79,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/terryma/vim-multiple-cursors
   Plug 'terryma/vim-multiple-cursors'
 
-  " https://github.com/Shougo/deoplete.nvim
-  Plug 'Shougo/deoplete.nvim'
-
 " Initialize plugin system
 call plug#end()
 

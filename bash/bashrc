@@ -2,10 +2,13 @@
 export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/Caskroom/android-sdk/4333796:$PATH"
 export PATH="/usr/local/Caskroom/android-sdk/4333796/tools:$PATH"
 export PATH="/usr/local/opt/qt/bin/:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.jenv/bin:$PATH"
+export PATH="$HOME/.phpenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
 
@@ -27,12 +30,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Initialize pyenv and rbenv
-which pyenv >/dev/null && eval "$(pyenv init -)"
-which rbenv >/dev/null && eval "$(rbenv init -)"
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+which pyenv  >/dev/null && eval "$(pyenv init -)"
+which rbenv  >/dev/null && eval "$(rbenv init -)"
+which jenv   >/dev/null && eval "$(jenv init -)"
+which phpenv >/dev/null && eval "$(phpenv init -)"
 
-# Initialize tmux
-[ -z "$TMUX" ] && exec tmux attach
+# Initialize tmux if on OSX
+[ -z "$TMUX" ] && [[ "$OSTYPE" == "darwin"* ]] && exec tmux attach
 
 # fzf
 source ~/.fzf.bash

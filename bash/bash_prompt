@@ -21,6 +21,12 @@ function parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="\u@\h\[$RESET\] \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" ➞  \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+export PROMPT_COLOR=$GREEN;
+
+# Show red prompt for SSH sessions
+[[ ! -z "$SSH_CONNECTION" ]] && export PROMPT_COLOR=$RED;
+
+
+export PS1="\u@\h\[$RESET\] \[$PROMPT_COLOR\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" ➞  \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
 export PS2="\[$RED\]→ \[$RESET\]"
 

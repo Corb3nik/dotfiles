@@ -5,6 +5,7 @@ export PATH="/usr/local/bin:$HOME/bin:$PATH"
 export PATH="/usr/local/Caskroom/android-sdk/4333796:$PATH"
 export PATH="/usr/local/Caskroom/android-sdk/4333796/tools:$PATH"
 export PATH="/usr/local/opt/qt/bin/:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.phpenv/bin:$PATH"
@@ -34,7 +35,7 @@ which pyenv  >/dev/null && eval "$(pyenv init -)"
 which rbenv  >/dev/null && eval "$(rbenv init -)"
 which jenv   >/dev/null && eval "$(jenv init -)"
 which phpenv >/dev/null && eval "$(phpenv init -)"
-
+which brew   >/dev/null && eval "$(brew shellenv)"
 # Initialize tmux if on OSX
 [ -z "$TMUX" ] && [[ "$OSTYPE" == "darwin"* ]] && exec tmux attach
 

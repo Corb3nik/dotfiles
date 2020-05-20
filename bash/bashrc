@@ -11,7 +11,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.phpenv/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
-[ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
+# [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Create aliases.local if doesn't exist
 root=$HOME
@@ -30,12 +30,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   [ -f "$(brew --prefix)/etc/bash_completion" ] && source $(brew --prefix)/etc/bash_completion
 fi
 
-# Initialize pyenv and rbenv
-which pyenv  >/dev/null && eval "$(pyenv init -)"
+# Initialize all the envs
+# which pyenv  >/dev/null && eval "$(pyenv init -)"
 which rbenv  >/dev/null && eval "$(rbenv init -)"
-which jenv   >/dev/null && eval "$(jenv init -)"
-which phpenv >/dev/null && eval "$(phpenv init -)"
-which brew   >/dev/null && eval "$(brew shellenv)"
+# which jenv   >/dev/null && eval "$(jenv init -)"
+# export JAVA_HOME="$(jenv prefix)"
+# which phpenv >/dev/null && eval "$(phpenv init -)"
+# which brew   >/dev/null && eval "$(brew shellenv)"
+
 # Initialize tmux if on OSX
 [ -z "$TMUX" ] && [[ "$OSTYPE" == "darwin"* ]] && exec tmux attach
 

@@ -1,6 +1,11 @@
 # This is Git's per-user configuration file.
 [user]
-        name = Corb3nik
-        email = ian@subnet192.com
+	name = corb3nik
+	email = ian@atvh.dev
 [credential]
         helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

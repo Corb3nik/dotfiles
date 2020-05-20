@@ -24,7 +24,7 @@ else # OS X `ls`
 fi
 
 # ls with permanent color output
-alias ls="command ls ${colorflag}"
+alias ls="lsd"
 
 # IP addresses
 alias ip="curl http://canhazip.com"

@@ -194,6 +194,7 @@ let g:vue_pre_processors = ['pug', 'scss', 'typescript']
     \ 'coc-html',
     \ 'coc-css',
     \ 'coc-vetur',
+    \ 'coc-eslint',
   \ ]
 
 " Nerdtree

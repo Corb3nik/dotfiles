@@ -70,8 +70,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/JamshedVesuna/vim-markdown-preview
   Plug 'JamshedVesuna/vim-markdown-preview'
 
-  " https://github.com/frankier/neovim-colors-solarized-truecolor-only/
-  Plug 'frankier/neovim-colors-solarized-truecolor-only'
+  " https://github.com/sonph/onehalf
+  Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
   " https://github.com/terryma/vim-multiple-cursors
   Plug 'terryma/vim-multiple-cursors'
@@ -94,15 +94,24 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/neoclide/coc.nvim
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+  " https://github.com/preservim/nerdtree
+  Plug 'preservim/nerdtree'
+
 " Initialize plugin system
 call plug#end()
 
 
 " Plugin Settings
-" Solarized
+" Onehalf
 syntax enable
-set background=dark
-colorscheme solarized
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " CtrP
 let g:ctrlp_map = '<c-p>'
@@ -163,6 +172,21 @@ let g:vue_pre_processors = ['pug', 'scss', 'typescript']
     endif
   endfunction
 
+  " Apply AutoFix to problem on the current line.
+  nmap <leader>qf  <Plug>(coc-fix-current)
+
+  " Go to definitions
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+
+  " Scrolling in popup
+  nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
   " Extensions list
   let g:coc_global_extensions = [
     \ 'coc-json',
@@ -172,6 +196,17 @@ let g:vue_pre_processors = ['pug', 'scss', 'typescript']
     \ 'coc-vetur',
   \ ]
 
+" Nerdtree
+  " Start NERDTree and put the cursor back in the other window.
+  autocmd VimEnter * NERDTree | wincmd p
+
+  " Close the tab if NERDTree is the only window remaining in it.
+  autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+  nnoremap <C-t> :NERDTreeToggle<CR>
+  nnoremap <C-f> :NERDTreeFind<CR>
+
 " Filetype specific settings
+"
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 autocmd FileType java setlocal shiftwidth=2 softtabstop=2

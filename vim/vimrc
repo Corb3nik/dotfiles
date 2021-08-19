@@ -33,6 +33,9 @@ if has("user_commands")
     command! -bang Qa qa<bang>
 endif
 
+" Add sign column
+set signcolumn=number
+
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
@@ -67,14 +70,29 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/JamshedVesuna/vim-markdown-preview
   Plug 'JamshedVesuna/vim-markdown-preview'
 
-  " https://github.com/zhaocai/GoldenView.Vim
-  Plug 'zhaocai/GoldenView.Vim'
-
   " https://github.com/frankier/neovim-colors-solarized-truecolor-only/
   Plug 'frankier/neovim-colors-solarized-truecolor-only'
 
   " https://github.com/terryma/vim-multiple-cursors
   Plug 'terryma/vim-multiple-cursors'
+
+  " https://github.com/posva/vim-vue
+  Plug 'posva/vim-vue'
+
+  " https://github.com/digitaltoad/vim-pug
+  Plug 'digitaltoad/vim-pug'
+
+  " https://github.com/cakebaker/scss-syntax.vim
+  Plug 'cakebaker/scss-syntax.vim'
+
+  " https://github.com/leafgarland/typescript-vim
+  Plug 'leafgarland/typescript-vim'
+
+  " https://github.com/pangloss/vim-javascript
+  Plug 'pangloss/vim-javascript'
+
+  " https://github.com/neoclide/coc.nvim
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Initialize plugin system
 call plug#end()
@@ -90,6 +108,9 @@ colorscheme solarized
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules\|coverage\|build',
+\ }
 
 " Vim-Commentary
 vmap <Bslash><Bslash> gc
@@ -101,19 +122,56 @@ let vim_markdown_preview_hotkey='<C-m>'
 let vim_markdown_preview_browser='Firefox'
 let vim_markdown_preview_github=1
 
-" Golden View
-let g:goldenview__enable_default_mapping = 0
-nmap <silent> <leader>w  <Plug>GoldenViewSplit
-nmap <silent> <C-l>  <Plug>GoldenViewNext
-nmap <silent> <C-h>  <Plug>GoldenViewPrevious
+" Vim-Vue
+let g:vue_pre_processors = ['pug', 'scss', 'typescript']
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" CoC
+  " Give more space for displaying messages."
+  set cmdheight=2
 
-" vim-javacomplete2
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+  " delays and poor user experience
+  set updatetime=300
+
+  " Don't pass messages to |ins-completion-menu|.
+  set shortmess+=c
+
+  " Use tab for trigger completion with characters ahead and navigate.
+  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+  " other plugin before putting this into your config.
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+      call CocActionAsync('doHover')
+    else
+      execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+  endfunction
+
+  " Extensions list
+  let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-tsserver',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-vetur',
+  \ ]
 
 " Filetype specific settings
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 autocmd FileType java setlocal shiftwidth=2 softtabstop=2
-

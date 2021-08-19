@@ -31,11 +31,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Initialize all the envs
-# which pyenv  >/dev/null && eval "$(pyenv init -)"
+which pyenv  >/dev/null && eval "$(pyenv init -)"
 which rbenv  >/dev/null && eval "$(rbenv init -)"
-# which jenv   >/dev/null && eval "$(jenv init -)"
+which jenv   >/dev/null && eval "$(jenv init -)"
 # export JAVA_HOME="$(jenv prefix)"
-# which phpenv >/dev/null && eval "$(phpenv init -)"
+which phpenv >/dev/null && eval "$(phpenv init -)"
 # which brew   >/dev/null && eval "$(brew shellenv)"
 
 # Initialize tmux if on OSX

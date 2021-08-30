@@ -135,9 +135,6 @@ let vim_markdown_preview_github=1
 let g:vue_pre_processors = ['pug', 'scss', 'typescript']
 
 " CoC
-  " Give more space for displaying messages."
-  set cmdheight=2
-
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
   " delays and poor user experience
   set updatetime=300
@@ -182,10 +179,13 @@ let g:vue_pre_processors = ['pug', 'scss', 'typescript']
   nmap <silent> gr <Plug>(coc-references)
 
   " Scrolling in popup
-  nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  nnoremap <nowait><expr> <Down> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <nowait><expr> <Up> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <nowait><expr> <Down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <nowait><expr> <Up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
+  " Floating window color
+  hi CocFloating guibg=#000000 guifg=red
 
   " Extensions list
   let g:coc_global_extensions = [
@@ -195,16 +195,22 @@ let g:vue_pre_processors = ['pug', 'scss', 'typescript']
     \ 'coc-css',
     \ 'coc-vetur',
     \ 'coc-eslint',
+    \ 'coc-rust-analyzer',
   \ ]
 
 " Nerdtree
+  " Show hidden files
+  let NERDTreeShowHidden=1
+
   " Start NERDTree and put the cursor back in the other window.
   autocmd VimEnter * NERDTree | wincmd p
 
   " Close the tab if NERDTree is the only window remaining in it.
   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-  nnoremap <C-t> :NERDTreeToggle<CR>
+  " Keep NERDTree open on each tab
+  autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
   nnoremap <C-f> :NERDTreeFind<CR>
 
 " Filetype specific settings

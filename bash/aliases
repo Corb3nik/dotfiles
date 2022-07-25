@@ -4,6 +4,9 @@ alias aliases="vim $HOME/.aliases"
 # Folders
 alias p="cd ~/Projects"
 
+# Grep-> Ripgrep
+alias grep="rg"
+
 # Vim
 alias vim="nvim"
 alias vi="vim"

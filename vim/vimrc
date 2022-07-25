@@ -100,6 +100,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/evanleck/vim-svelte
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
+  " https://github.com/yaegassy/coc-volar
+  Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
+
 " Initialize plugin system
 call plug#end()
 
@@ -200,11 +203,10 @@ let g:svelte_preprocessor_tags = [
 
   " Extensions list
   let g:coc_global_extensions = [
-    \ 'coc-json',
     \ 'coc-tsserver',
+    \ 'coc-json',
     \ 'coc-html',
     \ 'coc-css',
-    \ 'coc-vetur',
     \ 'coc-eslint',
     \ 'coc-rust-analyzer',
     \ 'coc-svelte',

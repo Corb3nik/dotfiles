@@ -24,6 +24,7 @@
     # Bash
     ~/.aliases: 'bash/aliases'
     ~/.aliases.local: 'bash/aliases.local'
+    ~/.secrets.local: 'bash/secrets.local'
     ~/.bash_colors: 'bash/bash_colors'
     ~/.bash_prompt: 'bash/bash_prompt'
     ~/.exports: 'bash/exports'

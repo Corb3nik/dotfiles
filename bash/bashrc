@@ -20,6 +20,7 @@ touch $root/.aliases.local
 source $root/.exports     # Various exports
 source $root/.aliases     # User-defined aliases
 source $root/.aliases.local     # Extra aliases
+source $root/.secrets.local # Secrets
 source $root/.bash_colors # Color codes
 source $root/.bash_prompt # Bash prompt
 source $root/.git-completion.bash # Git auto-complete

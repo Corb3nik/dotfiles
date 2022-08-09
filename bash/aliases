@@ -49,11 +49,6 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 # File size
 alias fs="stat -f \"%z bytes\""
 
-# Burpsuite Debugging
-alias burpdbg="java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar /Applications/Burp\ Suite\ Professional.app/Contents/java/app/burpsuite_pro.jar"
-
-# Android Emulator
-# Fix : https://stackoverflow.com/questions/42554337/cannot-launch-avd-in-emulatorqt-library-not-found
-alias emulator="/usr/local/Caskroom/android-sdk/4333796/tools/emulator"
-
 alias weather="curl wttr.in/~Chambly"
+
+alias emulator="~/Library/Android/sdk/emulator/emulator"

@@ -9,14 +9,16 @@ export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/Library/pnpm:$PATH"
 
-# [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
+# Android SDK
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export ANDROID_AVD_HOME=$HOME/.android/avd
 
-# Create aliases.local if doesn't exist
-root=$HOME
-touch $root/.aliases.local
 
 # Source files
+root=$HOME
 source $root/.exports     # Various exports
 source $root/.aliases     # User-defined aliases
 source $root/.aliases.local     # Extra aliases
@@ -30,21 +32,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   [ -f "$(brew --prefix)/etc/bash_completion" ] && source $(brew --prefix)/etc/bash_completion
 fi
 
-# Initialize all the envs
+# Language environments
 which pyenv  >/dev/null && eval "$(pyenv init -)"
 which rbenv  >/dev/null && eval "$(rbenv init -)"
 which jenv   >/dev/null && eval "$(jenv init -)"
-# export JAVA_HOME="$(jenv prefix)"
-# which brew   >/dev/null && eval "$(brew shellenv)"
-
-# Initialize tmux if on OSX
-[ -z "$TMUX" ] && [[ "$OSTYPE" == "darwin"* ]] && exec tmux attach
 
 # fzf
 source ~/.fzf.bash
 
-
-# pnpm
-export PNPM_HOME="/Users/Corb3nik/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+# Initialize tmux if on OSX
+[ -z "$TMUX" ] && [[ "$OSTYPE" == "darwin"* ]] && exec tmux attach

@@ -1,3 +1,4 @@
 bash/aliases.local
+bash/secrets.local
 vim/.netrwhist
 .DS_Store

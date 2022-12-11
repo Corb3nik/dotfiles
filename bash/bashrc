@@ -33,12 +33,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Language environments
-which pyenv  >/dev/null && eval "$(pyenv init -)"
-which rbenv  >/dev/null && eval "$(rbenv init -)"
-which jenv   >/dev/null && eval "$(jenv init -)"
+# which pyenv  >/dev/null && eval "$(pyenv init -)"
+# which rbenv  >/dev/null && eval "$(rbenv init -)"
+# which jenv   >/dev/null && eval "$(jenv init -)"
 
 # fzf
 source ~/.fzf.bash
-
-# Initialize tmux if on OSX
-[ -z "$TMUX" ] && [[ "$OSTYPE" == "darwin"* ]] && exec tmux attach

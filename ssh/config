@@ -1,49 +1,42 @@
 Host vps
      HostName vps
      User corb3nik
-     IdentityFile ~/.ssh/id_rsa
 
 Host ota
      HostName ota
      User root
-     IdentityFile ~/.ssh/id_rsa
 
 Host server
     Hostname server.internal
     User corb3nik
-    IdentityFile ~/.ssh/id_rsa
 
 Host docker-manager
     Hostname docker-manager.internal
     User corb3nik
-    IdentityFile ~/.ssh/id_rsa
 
 Host time-machine
   Hostname time-machine.internal
   User corb3nik
-  IdentityFile ~/.ssh/id_rsa
 
 Host dev
   Hostname dev.internal
   User corb3nik
-  IdentityFile ~/.ssh/id_rsa
 
 Host disturbia
   Hostname disturbia.disturbance.team
   User corb3nik
-  IdentityFile ~/.ssh/id_rsa
 
 Host linux-fuzzing
   Hostname linux-fuzzing.internal
   User corb3nik
-  IdentityFile ~/.ssh/id_rsa
 
 Host bug-bounty
   Hostname bug-bounty.internal
   User corb3nik
-  IdentityFile ~/.ssh/id_rsa
 
 HOST plex
   Hostname plex.internal
   User corb3nik
-  IdentityFile ~/.ssh/id_rsa
+
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

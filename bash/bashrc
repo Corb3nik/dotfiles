@@ -38,4 +38,4 @@ fi
 # which jenv   >/dev/null && eval "$(jenv init -)"
 
 # fzf
-source ~/.fzf.bash
+# source ~/.fzf.bash

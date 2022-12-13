@@ -97,12 +97,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/preservim/nerdtree
   Plug 'preservim/nerdtree'
 
-  " https://github.com/evanleck/vim-svelte
-  Plug 'evanleck/vim-svelte', {'branch': 'main'}
-
-  " https://github.com/yaegassy/coc-volar
-  Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
-
 " Initialize plugin system
 call plug#end()
 
@@ -140,14 +134,6 @@ let vim_markdown_preview_github=1
 " Vim-Vue
 let g:vue_pre_processors = ['pug', 'scss', 'typescript']
 
-" Vim-Svelte
-let g:svelte_indent_script = 0
-let g:svelte_indent_style = 0
-let g:svelte_preprocessors = ['typescript', 'scss', 'pug']
-let g:svelte_preprocessor_tags = [
-  \ { 'name': 'pug', 'tag': 'template', 'as': 'pug' }
-  \ ]
-
 " CoC
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
   " delays and poor user experience
@@ -156,19 +142,23 @@ let g:svelte_preprocessor_tags = [
   " Don't pass messages to |ins-completion-menu|.
   set shortmess+=c
 
-  " Use tab for trigger completion with characters ahead and navigate.
-  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-  " other plugin before putting this into your config.
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-  function! s:check_back_space() abort
+  " Use <tab> to trigger completion and navigate to the next complete item
+  function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
+
+  inoremap <silent><expr> <Tab>
+        \ coc#pum#visible() ? coc#pum#next(1) :
+        \ CheckBackspace() ? "\<Tab>" :
+        \ coc#refresh()
+
+  " Select the first completion item and confirm the completion when no item has been selected
+  inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+  " Use <Tab> and <S-Tab> to navigate the completion list
+  inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+  inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -208,8 +198,7 @@ let g:svelte_preprocessor_tags = [
     \ 'coc-html',
     \ 'coc-css',
     \ 'coc-eslint',
-    \ 'coc-rust-analyzer',
-    \ 'coc-svelte',
+    \ '@yaegassy/coc-volar'
   \ ]
 
 " Nerdtree

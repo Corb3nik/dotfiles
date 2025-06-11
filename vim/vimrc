@@ -97,6 +97,18 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/preservim/nerdtree
   Plug 'preservim/nerdtree'
 
+  " https://github.com/stephenway/postcss.vim
+  Plug 'stephenway/postcss.vim'
+
+  " https://github.com/ap/vim-css-color
+  Plug 'ap/vim-css-color'
+
+  " https://github.com/github/copilot.vim
+  Plug 'github/copilot.vim'
+
+  " https://github.com/jparise/vim-graphql
+  Plug 'jparise/vim-graphql'
+
 " Initialize plugin system
 call plug#end()
 
@@ -117,8 +129,9 @@ endif
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules\|coverage\|build',
+  \ 'dir':  'node_modules\|coverage\|build\|target\|dist',
 \ }
 
 " Vim-Commentary
@@ -157,7 +170,6 @@ let g:vue_pre_processors = ['pug', 'scss', 'typescript']
   inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
   " Use <Tab> and <S-Tab> to navigate the completion list
-  inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
   inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
   " Use K to show documentation in preview window.
@@ -198,6 +210,7 @@ let g:vue_pre_processors = ['pug', 'scss', 'typescript']
     \ 'coc-html',
     \ 'coc-css',
     \ 'coc-eslint',
+    \ 'coc-biome',
     \ '@yaegassy/coc-volar'
   \ ]
 
